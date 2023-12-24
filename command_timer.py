@@ -13,7 +13,8 @@ class TimerMode(Enum):
 class CommandTimerArugument():
     def __init__(self) -> None:
         # Always Option
-        self.silent = True
+        self.ring = None
+        self.silent = None
         self.sound = ""
         self.repeat = False
         self.scount = 3
@@ -33,6 +34,11 @@ class CommandTimerArugument():
             self.__dict__[key] = val
             if key == "mode":
                 self.mode = TimerMode[val.upper()]
+
+        if self.silent is None:
+            self.silent = True
+        if self.ring is True:
+            self.silent = False
         
         if self.mode == TimerMode.GAME:
             self.calc_prod_mass()

@@ -10,10 +10,15 @@ def version():
 
 def getOption():
     parent_parser = argparse.ArgumentParser(add_help=False)
+    parent_parser.add_argument( '--ring',
+        action='store_true',
+        default=None,
+        help='Sounding Chime')
+
     parent_parser.add_argument( '--silent',
         action='store_true',
-        default=True,
-        help='No Sound (Default True)')
+        default=None,
+        help='No Sound')
 
     parent_parser.add_argument( '--repeat',
         action='store_true',
