@@ -36,7 +36,7 @@ class GUIBarCommandTimer(CommandTimer):
     def run(self):
         layout_main = [ [
                 sg.Button("Exit",   key=GUIParts.BT_Exit),
-                sg.ProgressBar(100, key=GUIParts.BAR_Progress, orientation='h', size=(1200, 50)),
+                sg.ProgressBar(100, key=GUIParts.BAR_Progress, orientation='h', size=(1200, 50), bar_color=(Colors.OLIVE, Colors.SILVER)),
             ],]
         self.window = sg.Window("Bar Timer", layout_main, 
             size=(1200,50), grab_anywhere=True, resizable=True, no_titlebar=True,
