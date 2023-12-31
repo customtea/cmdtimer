@@ -39,8 +39,18 @@ def getOption():
         default=3,
         help='Sound Count')
 
+    parent_parser.add_argument( '--progress',
+        action='store_true',
+        default=None,
+        help='Terminal Progress Bar')
+
+    parent_parser.add_argument( '--gui',
+        action='store_true',
+        default=None,
+        help='GUI Progress Bar')
+
     parser = argparse.ArgumentParser(description="Commndline Timer")
-    subparsers = parser.add_subparsers(title="Timer Mode", help="Mode", dest="mode")
+    subparsers = parser.add_subparsers(title="Timer Mode", help="Mode", dest="mode", required=True)
 
     timer_parser = subparsers.add_parser("timer", help="Default Normal Timer", parents=[parent_parser])
     game_parser = subparsers.add_parser("game", help="Set Timeer from prod mass in game (like Idle Game)", parents=[parent_parser])
@@ -90,5 +100,13 @@ if __name__ == '__main__':
     pargs = CommandTimerArugument()
     args = getOption()
     pargs.fromargparse(args)
-    cmdtimer = CommandTimer(pargs)
-    cmdtimer.run()
+    timer: CommandTimer
+    if args.gui:
+        from gui_bar_command_timer import GUIBarCommandTimer
+        timer = GUIBarCommandTimer(pargs)
+    elif args.progress:
+        from terminal_bar_command_timer import TerminalBarCommandTimer
+        timer = TerminalBarCommandTimer(pargs)
+    else:
+        timer = CommandTimer(pargs)
+    timer.run()
