@@ -9,13 +9,13 @@ Commndline Timer
 
 options:
   -h, --help            show this help message and exit
-  --version             show program's version number and exit
+  --version             show program version number and exit
 
 Timer Mode:
   {timer,game,alarm,cron}
                         Mode
     timer               Default Normal Timer
-    game                Set Timeer from prod mass in game (like Idle Game)
+    game                Set Timer from prod mass in game (like Idle Game)
     alarm               [Not Implement] Set Timer from DateTime
     cron                [Not Implement] Set Timer Like 'Cron' Table
 
