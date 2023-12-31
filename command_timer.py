@@ -89,9 +89,13 @@ class CommandTimer():
             time.sleep(0.2)
     
     def run(self):
-        self.__maintimer()
-        while self.is_repreat:
+        try:
             self.__maintimer()
+            while self.is_repreat:
+                self.__maintimer()
+        except KeyboardInterrupt:
+            print("Intrrupt Timer")
+            return
     
     def end_timer_silent(self):
         print(f"Time is End. Elapsed {self.hour:}:{self.min:02}:{self.sec:02} At:{self.__start_datetime.isoformat()}")
