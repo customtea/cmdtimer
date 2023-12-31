@@ -54,8 +54,8 @@ def getOption():
 
     timer_parser = subparsers.add_parser("timer", help="Default Normal Timer", parents=[parent_parser])
     game_parser = subparsers.add_parser("game", help="Set Timeer from prod mass in game (like Idle Game)", parents=[parent_parser])
-    alarm_parser = subparsers.add_parser("alarm", help="Set Timer from DateTime", parents=[parent_parser])
-    cron_parser = subparsers.add_parser("cron", help="Set Timer Like 'Cron' Table", parents=[parent_parser])
+    alarm_parser = subparsers.add_parser("alarm", help="[Not Implement] Set Timer from DateTime", parents=[parent_parser])
+    cron_parser = subparsers.add_parser("cron", help="[Not Implement] Set Timer Like 'Cron' Table", parents=[parent_parser])
 
     timer_parser.add_argument( '--sec',
         nargs='?',
